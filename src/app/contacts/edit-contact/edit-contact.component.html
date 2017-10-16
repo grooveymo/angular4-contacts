@@ -1,0 +1,36 @@
+<div style='margin-top:20px'>
+  <h1 class='alert alert-warning'> Editing Contact: <span class='badge badge-default'> {{model?.firstName + model?.lastName}} </span> </h1>
+</div>
+
+<div class="card">
+
+  <div class="card-block">
+
+    <div class="form-group row">
+      <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="firstName" placeholder="First Name" [(ngModel)]="model.firstName"
+               novalidate>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="lastName" placeholder="Last Name" [(ngModel)]="model.lastName"
+               novalidate>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="email" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="model.email">
+      </div>
+    </div>
+
+
+    <div class="pull-right">
+      <button class='btn btn-success' (click)='onSave()'> Save</button>
+    </div>
+  </div>

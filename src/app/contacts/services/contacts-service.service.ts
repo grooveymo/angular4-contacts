@@ -65,20 +65,19 @@ export class ContactsService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'))
 
   }
-  // removeTodo(contactId: string) {
-  //   let headers = new Headers({ 'Content-Type': 'application/json' });
-  //   let options = new RequestOptions({ headers: headers });
-  //   let path = CONTACTS_REST_API + '/' + contactId + '/remove/';
-  //
-  //   return this.http.delete(path, options)
-  //     .map(
-  //       (response: Response) => {
-  //         console.log('foo: ' + JSON.stringify(response.json()));
-  //         return response.json();
-  //       })
-  //     .catch((error: any) => Observable.throw(error.json().error || 'Server Error'))
-  //
-  // }
 
+  getContact(contactId: string) {
+    let path = CONTACTS_REST_API + '/' + contactId;
+    console.log('ContactsService[1] : about to call GET/ ' + path);
+    return this.http
+      .get(CONTACTS_REST_API)
+//      .map((response: Response) => response.json())
+      .map(
+        (response: Response) => {
+          console.log('ContactsService[2] : res =  ', response);
+          return response.json()[0];
+        })
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
 
 }

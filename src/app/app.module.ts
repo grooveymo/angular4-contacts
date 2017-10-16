@@ -11,6 +11,7 @@ import {ContactsModule} from "./contacts/contacts.module";
 import {CreateContactComponent} from "./contacts/create-contact/create-contact.component";
 import {HomeComponent} from "./home/home/home.component";
 import {ListContactsComponent} from "./contacts/list-contacts/list-contacts.component";
+import {EditContactComponent} from "./contacts/edit-contact/edit-contact.component";
 
 // import {NavBarComponent} from "./common/nav-bar/nav-bar.component";
 
@@ -20,7 +21,7 @@ const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'create-contact', component: CreateContactComponent},
   {path: 'view-contacts', component: ListContactsComponent},
-  // {path : 'edit-contact/:id', component : EditListPageComponent}
+  {path : 'edit-contact/:id', component : EditContactComponent}
 ];
 
 @NgModule({

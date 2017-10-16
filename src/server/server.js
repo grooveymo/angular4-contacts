@@ -108,43 +108,6 @@ router.route('/contacts/generate/:id')
   });
 
 // ----------------------------------------------------
-// CREATE a NEW Contact
-// create a todolist (accessed at POST http://localhost:8080/api/todolists)
-router.route('/contacts/')
-  .post(function(req, res) {
-    console.log('calling POST /contacts/ with body : ' + JSON.stringify(req.body));
-    var contact = new Contact();		// create a new instance of the TodoList model
-    contact.firstName = req.body.firstName;
-    contact.lastName = req.body.lastName;
-    contact.email = req.body.email;
-    //contact.telephone = req.body.telephone;
-    //contact.address = {
-    //  firstLineOfAddress: req.body.address.firstLineOfAddress,
-    //  secondLineOfAddress: req.body.address.secondLineOfAddress,
-    //  city: req.body.address.city,
-    //  postCode: req.body.address.postCode
-    //};
-    contact.save(function(err) {
-      if (err) {
-        console.log('[ERROR] POST /contacts - ' + JSON.stringify(err));
-        res.status(400);
-        return res.send(err);
-      }
-      
-      res.json({ message: 'New Contact created!', contact: contact });
-    });
-  })
-  .get(function(req, res) {
-    console.log('calling GET /contacts/');
-    Contact.find(function(err, contactList) {
-      if (err) {
-        console.log('[ERROR] GET /contacts - ' + JSON.stringify(err));
-        return res.send(err);
-      }
-      
-      res.json(contactList);
-    });
-  });
 
 //handle get single contact and update contact
 router.route('/contacts/:id')
@@ -177,9 +140,9 @@ router.route('/contacts/:id')
       });
       
     });
-    
   })
   .get(function(req, res) {
+    console.log('[SAW] GET/ contact : ', req);
     Contact.find({ _id: req.params.id }, function(err, contact) {
       if (err) {
         console.log('[ERROR] GET /contacts - ' + JSON.stringify(err));
@@ -199,6 +162,45 @@ router.route('/contacts/:id')
       res.json({ message: 'Successfully deleted', id: toBeDeletedId });
     });
     
+  });
+
+// CREATE a NEW Contact
+// create a todolist (accessed at POST http://localhost:8080/api/todolists)
+router.route('/contacts/')
+  .post(function(req, res) {
+    console.log('calling POST /contacts/ with body : ' + JSON.stringify(req.body));
+    var contact = new Contact();		// create a new instance of the TodoList model
+    contact.firstName = req.body.firstName;
+    contact.lastName = req.body.lastName;
+    contact.email = req.body.email;
+    //contact.telephone = req.body.telephone;
+    //contact.address = {
+    //  firstLineOfAddress: req.body.address.firstLineOfAddress,
+    //  secondLineOfAddress: req.body.address.secondLineOfAddress,
+    //  city: req.body.address.city,
+    //  postCode: req.body.address.postCode
+    //};
+    contact.save(function(err) {
+      if (err) {
+        console.log('[ERROR] POST /contacts - ' + JSON.stringify(err));
+        res.status(400);
+        return res.send(err);
+      }
+      
+      res.json({ message: 'New Contact created!', contact: contact });
+    });
+  })
+  .get(function(req, res) {
+    console.log('[GENERAL] calling GET /contacts/', req);
+    console.log('[GENERAL] calling GET /contacts/');
+    Contact.find(function(err, contactList) {
+      if (err) {
+        console.log('[ERROR] GET /contacts - ' + JSON.stringify(err));
+        return res.send(err);
+      }
+      
+      res.json(contactList);
+    });
   });
 
 
