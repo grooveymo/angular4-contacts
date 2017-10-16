@@ -10,6 +10,7 @@ import {ContactsModule} from "./contacts/contacts.module";
 
 import {CreateContactComponent} from "./contacts/create-contact/create-contact.component";
 import {HomeComponent} from "./home/home/home.component";
+import {ListContactsComponent} from "./contacts/list-contacts/list-contacts.component";
 
 // import {NavBarComponent} from "./common/nav-bar/nav-bar.component";
 
@@ -18,8 +19,8 @@ import {HomeComponent} from "./home/home/home.component";
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'create-contact', component: CreateContactComponent},
-  // {path : 'edit-contact/:id', component : EditListPageComponent},
-  // {path : 'view-contacts', component : ViewListsPageComponent}
+  {path: 'view-contacts', component: ListContactsComponent},
+  // {path : 'edit-contact/:id', component : EditListPageComponent}
 ];
 
 @NgModule({
@@ -40,7 +41,7 @@ const appRoutes: Routes = [
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports : [
+  exports: [
     FormsModule
   ]
 })
