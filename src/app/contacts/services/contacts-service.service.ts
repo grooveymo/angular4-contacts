@@ -54,7 +54,7 @@ export class ContactsService {
   }
 
   removeContact(contactId: string) {
-    let path = CONTACTS_REST_API + '/' + contactId + '/remove';
+    let path = CONTACTS_REST_API + '/' + contactId;
 
     return this.http.delete(path)
       .map((response: Response) => {
