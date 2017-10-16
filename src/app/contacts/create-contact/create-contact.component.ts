@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Contact } from '../../models/contact';
 
 @Component({
   selector: 'app-create-contact',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-contact.component.css']
 })
 export class CreateContactComponent implements OnInit {
+
+  //@Input()
+  private model : Contact = new Contact(null, '', '', '');
 
   constructor() { }
 
