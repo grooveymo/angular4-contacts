@@ -13,14 +13,14 @@ export class EditContactComponent implements OnInit {
 
   public model : Contact = new Contact("","","","");
 
-  constructor(private router: Router, private route: ActivatedRoute, private contactService: ContactsService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private contactsService: ContactsService) { }
 
   ngOnInit() {
 
     console.log('EditContact : ');
 
     this.route.params
-      .switchMap((params: Params) => this.contactService.getContact(params['id']))
+      .switchMap((params: Params) => this.contactsService.getContact(params['id']))
       .subscribe(
         (contact: Contact) => {
           console.log('EditContact : ', contact);
@@ -29,6 +29,17 @@ export class EditContactComponent implements OnInit {
           console.log('EditContact : firstname = ' + contact.firstName);
         }
       );
+  }
+
+  onSave() {
+    console.log('updating contact');
+    this.contactsService
+      .updateContact(this.model)
+      .subscribe((data: Contact) => {
+        console.log('updated contact - routing to /edit-contact/' + JSON.stringify(data));
+//        this.router.navigate(['/edit-contact/', data._id]);
+      });
+
   }
 
 }

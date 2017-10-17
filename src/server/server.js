@@ -112,12 +112,17 @@ router.route('/contacts/generate/:id')
 //handle get single contact and update contact
 router.route('/contacts/:id')
   .put(function(req, res) {
+    
+    console.log('Updating contact : ', req.params.id);
     Contact.findById({ _id: req.params.id }, function(err, contact) {
       if (err) {
         console.log('[ERROR] PUT /contacts - ' + JSON.stringify(err));
         return res.send(err);
       }
-      
+  
+      console.log('Updating contact with details: ', contact);
+  
+  
       contact.firstName = req.body.firstName;
       contact.lastName = req.body.lastName;
       contact.email = req.body.email;
@@ -135,7 +140,9 @@ router.route('/contacts/:id')
           res.status(400);
           return res.send(err);
         }
-        
+  
+        console.log('*** Updated contacted : ', updatedContact);
+  
         res.json({ message: 'Contact updated!', contact: updatedContact });
       });
       

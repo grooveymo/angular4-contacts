@@ -80,4 +80,26 @@ export class ContactsService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+
+  updateContact(contact : Contact) {
+
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let path = CONTACTS_REST_API + '/' + contact._id;
+
+    console.log('inside service with body : ' + JSON.stringify(contact));
+    return this.http
+      .put(path, contact, options)
+      .map((response: Response) => {
+        let res = response.json();
+        let updatedContact = res.contact;
+        console.log('1.) service responds with ' + JSON.stringify(res));
+        console.log('2.) service responds with ' + JSON.stringify(updatedContact));
+        return updatedContact;
+      })
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error')
+      );
+
+  }
+
 }
