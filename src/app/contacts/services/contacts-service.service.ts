@@ -70,7 +70,7 @@ export class ContactsService {
     let path = CONTACTS_REST_API + '/' + contactId;
     console.log('ContactsService[1] : about to call GET/ ' + path);
     return this.http
-      .get(CONTACTS_REST_API)
+      .get(path)
 //      .map((response: Response) => response.json())
       .map(
         (response: Response) => {

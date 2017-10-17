@@ -142,7 +142,7 @@ router.route('/contacts/:id')
     });
   })
   .get(function(req, res) {
-    console.log('[SAW] GET/ contact : ', req);
+    console.log('[SPECIFIC] GET/ contact : ', req);
     Contact.find({ _id: req.params.id }, function(err, contact) {
       if (err) {
         console.log('[ERROR] GET /contacts - ' + JSON.stringify(err));
