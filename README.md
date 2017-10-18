@@ -37,6 +37,14 @@ To fix these go into the edit-contact.component.ts file and do the following
 
 Run ng lint again and you should see that the errors have disappeared.
 
+Things to do
+--------------
+- add unit tests
+- add authguard functionality
+- implement reactive forms example
+- add form validation
+- add search capability
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
