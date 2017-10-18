@@ -4,6 +4,25 @@ Sample contacts application built using Angular 4.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
 
+
+Run the lint command
+$ ng lint
+
+And you'll see errors like: 
+
+Warning: The 'no-use-before-declare' rule requires type information.
+
+ERROR: /Users/mo/Work/anatwine/angular4-contacts/angular-contacts/src/app/contacts/edit-contact/edit-contact.component.ts[4, 31]: " should be '
+ERROR: /Users/mo/Work/anatwine/angular4-contacts/angular-contacts/src/app/contacts/edit-contact/edit-contact.component.ts[28, 31]: Missing semicolon
+ERROR: /Users/mo/Work/anatwine/angular4-contacts/angular-contacts/src/app/contacts/edit-contact/edit-contact.component.ts[14, 15]: expected nospace before colon in property-declaration
+
+To fix these go into the edit-contact.component.ts file and do the following
+
+- on line 4 replace the double quotes (") with single quotes (')
+- on line 28 add a ;
+- on line 14 remove the space between 'model' and ':'
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

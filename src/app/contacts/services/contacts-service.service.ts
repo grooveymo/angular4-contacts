@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 import { Contact } from '../../models/contact';
 
 
-const CONTACTS_REST_API: string = 'http://localhost:9090/api/contacts';
+const CONTACTS_REST_API = 'http://localhost:9090/api/contacts';
 
 
 @Injectable()
@@ -22,15 +22,15 @@ export class ContactsService {
    * @returns {Observable<Contact>}
    */
   createContact(body): Observable<Contact> {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
 
     console.log('inside service with body : ' + JSON.stringify(body));
     return this.http
       .post(CONTACTS_REST_API, body, options)
       .map((response: Response) => {
-        let res = response.json();
-        let persistedContact = res.contact;
+        const res = response.json();
+        const persistedContact = res.contact;
         console.log('1.) service responds with ' + JSON.stringify(res));
         console.log('2.) service responds with ' + JSON.stringify(persistedContact));
         return persistedContact;
@@ -54,7 +54,7 @@ export class ContactsService {
   }
 
   removeContact(contactId: string) {
-    let path = CONTACTS_REST_API + '/' + contactId;
+    const path = CONTACTS_REST_API + '/' + contactId;
 
     return this.http.delete(path)
       .map((response: Response) => {
@@ -62,12 +62,12 @@ export class ContactsService {
         console.log('DDT  2==> ' + JSON.stringify(response.json()));
         return response.status;
       })
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error'))
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 
   }
 
   getContact(contactId: string) {
-    let path = CONTACTS_REST_API + '/' + contactId;
+    const path = CONTACTS_REST_API + '/' + contactId;
     console.log('ContactsService[1] : about to call GET/ ' + path);
     return this.http
       .get(path)
@@ -81,18 +81,18 @@ export class ContactsService {
   }
 
 
-  updateContact(contact : Contact) {
+  updateContact(contact: Contact) {
 
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
-    let path = CONTACTS_REST_API + '/' + contact._id;
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
+    const path = CONTACTS_REST_API + '/' + contact._id;
 
     console.log('inside service with body : ' + JSON.stringify(contact));
     return this.http
       .put(path, contact, options)
       .map((response: Response) => {
-        let res = response.json();
-        let updatedContact = res.contact;
+        const res = response.json();
+        const updatedContact = res.contact;
         console.log('1.) service responds with ' + JSON.stringify(res));
         console.log('2.) service responds with ' + JSON.stringify(updatedContact));
         return updatedContact;

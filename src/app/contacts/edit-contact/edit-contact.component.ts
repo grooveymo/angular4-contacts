@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Contact} from "../../models/contact";
-import {ActivatedRoute, Params, Router} from "@angular/router";
+import {Contact} from '../../models/contact';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ContactsService} from "../services/contacts-service.service";
 import 'rxjs/add/operator/switchMap';
 
@@ -11,7 +11,7 @@ import 'rxjs/add/operator/switchMap';
 })
 export class EditContactComponent implements OnInit {
 
-  public model : Contact = new Contact("","","","");
+  public model : Contact = new Contact('', '', '', '');
 
   constructor(private router: Router, private route: ActivatedRoute, private contactsService: ContactsService) { }
 
@@ -25,7 +25,7 @@ export class EditContactComponent implements OnInit {
         (contact: Contact) => {
           console.log('EditContact : ', contact);
 
-          this.model = contact;
+          this.model = contact
           console.log('EditContact : firstname = ' + contact.firstName);
         }
       );
@@ -36,7 +36,7 @@ export class EditContactComponent implements OnInit {
     this.contactsService
       .updateContact(this.model)
       .subscribe((data: Contact) => {
-        console.log('updated contact - routing to /edit-contact/' + JSON.stringify(data));
+        console.log('updated contact - routing to /edit-contact/', data);
 //        this.router.navigate(['/edit-contact/', data._id]);
       });
 

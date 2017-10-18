@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ContactsService} from "../services/contacts-service.service";
-import {Router} from "@angular/router";
-import {Contact} from "../../models/contact";
+import {ContactsService} from '../services/contacts-service.service';
+import {Router} from '@angular/router';
+import {Contact} from '../../models/contact';
 
 @Component({
   selector: 'app-list-contacts',
@@ -11,14 +11,14 @@ import {Contact} from "../../models/contact";
 export class ListContactsComponent implements OnInit {
 
 
-  public contacts : Contact[];
+  public contacts: Contact[];
 
   constructor(private router: Router, private contactsService: ContactsService) {
   }
 
   ngOnInit() {
     this.contactsService.getContacts().subscribe((data: Contact[]) => {
-      this.contacts = data
+      this.contacts = data;
     });
   }
 
@@ -29,9 +29,9 @@ export class ListContactsComponent implements OnInit {
   removeContact(id: string) {
     this.contactsService.removeContact(id)
       .subscribe((data: number) => {
-        if(data === 200) {
+        if (data === 200) {
           this.contacts = this.contacts.filter(function(contact){
-            return contact._id != id;
+            return contact._id !== id;
           });
         }
       });
