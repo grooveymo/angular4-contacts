@@ -37,7 +37,7 @@ export class EditContactComponent implements OnInit {
       .updateContact(this.model)
       .subscribe((data: Contact) => {
         console.log('updated contact - routing to /edit-contact/', data);
-//        this.router.navigate(['/edit-contact/', data._id]);
+        this.router.navigate(['view-contacts']);
       });
 
   }
