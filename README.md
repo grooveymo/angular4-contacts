@@ -8,6 +8,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Instructions
 -------------
+0.) Install mongodb (https://www.mongodb.com/download-center#community)
+
+
 1.) run npm install
 
 
