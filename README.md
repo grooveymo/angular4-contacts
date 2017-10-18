@@ -1,20 +1,33 @@
 # AngularContacts
 
+Background
+------------
 Sample contacts application built using Angular 4.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
 
+Instructions
+-------------
+1.) run npm install
 
-Run the lint command
-$ ng lint
+
+2.) enter the following command to serve the pages
+
+  $ ng serve
+  
+  Fire up the browser and navigate to http://localhost:4200
+
+3.) Stop the application (CTRL-C). Run the lint command
+
+  $ ng lint
 
 And you'll see errors like: 
 
 Warning: The 'no-use-before-declare' rule requires type information.
 
-ERROR: /Users/mo/Work/anatwine/angular4-contacts/angular-contacts/src/app/contacts/edit-contact/edit-contact.component.ts[4, 31]: " should be '
-ERROR: /Users/mo/Work/anatwine/angular4-contacts/angular-contacts/src/app/contacts/edit-contact/edit-contact.component.ts[28, 31]: Missing semicolon
-ERROR: /Users/mo/Work/anatwine/angular4-contacts/angular-contacts/src/app/contacts/edit-contact/edit-contact.component.ts[14, 15]: expected nospace before colon in property-declaration
+- ERROR: /Users/mo/Work/anatwine/angular4-contacts/angular-contacts/src/app/contacts/edit-contact/edit-contact.component.ts[4, 31]: " should be '
+- ERROR: /Users/mo/Work/anatwine/angular4-contacts/angular-contacts/src/app/contacts/edit-contact/edit-contact.component.ts[28, 31]: Missing semicolon
+- ERROR: /Users/mo/Work/anatwine/angular4-contacts/angular-contacts/src/app/contacts/edit-contact/edit-contact.component.ts[14, 15]: expected nospace before colon in property-declaration
 
 To fix these go into the edit-contact.component.ts file and do the following
 
@@ -22,6 +35,7 @@ To fix these go into the edit-contact.component.ts file and do the following
 - on line 28 add a ;
 - on line 14 remove the space between 'model' and ':'
 
+Run ng lint again and you should see that the errors have disappeared.
 
 ## Development server
 
