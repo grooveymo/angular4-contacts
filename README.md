@@ -37,6 +37,16 @@ To fix these go into the edit-contact.component.ts file and do the following
 
 Run ng lint again and you should see that the errors have disappeared.
 
+Note
+-----
+
+To help generate test data, fire up postman and create requests like the following
+
+http://localhost:9090/api/contacts/generate/<id>
+
+where <id> is some random number
+
+
 Things to do
 --------------
 - add unit tests

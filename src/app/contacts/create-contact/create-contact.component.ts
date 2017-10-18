@@ -23,8 +23,8 @@ export class CreateContactComponent implements OnInit {
     this.contactsService
       .createContact(this.model)
       .subscribe((data: Contact) => {
-        console.log('routing to /edit-contact/' + JSON.stringify(data._id));
-//        this.router.navigate(['/edit-contact/', data._id]);
+        console.log('routing to /edit-contact/' + data._id);
+        this.router.navigate(['/edit-contact/', data._id]);
       });
   }
 
