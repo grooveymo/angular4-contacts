@@ -10,6 +10,8 @@ var app = express();
 var morgan = require('morgan');
 var mongoose = require('mongoose');
 
+const path = require('path');
+
 //declare mongo models
 var Contact = require('./models/contact').Contact;
 
@@ -119,10 +121,10 @@ router.route('/contacts/:id')
         console.log('[ERROR] PUT /contacts - ' + JSON.stringify(err));
         return res.send(err);
       }
-  
+      
       console.log('Updating contact with details: ', contact);
-  
-  
+      
+      
       contact.firstName = req.body.firstName;
       contact.lastName = req.body.lastName;
       contact.email = req.body.email;
@@ -140,9 +142,9 @@ router.route('/contacts/:id')
           res.status(400);
           return res.send(err);
         }
-  
+        
         console.log('*** Updated contacted : ', updatedContact);
-  
+        
         res.json({ message: 'Contact updated!', contact: updatedContact });
       });
       
@@ -215,6 +217,17 @@ router.route('/contacts/')
 // REGISTER OUR ROUTES
 // =============================================================================
 app.use('/api', router);
+
+
+// serve the angular pages from node/express
+//---------------------------------------------
+// Point static path to dist
+app.use(express.static(path.join(__dirname, '../../dist')));
+
+// Catch all other routes and return the index file
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, '../../dist/index.html'));
+});
 
 // =============================================================================
 // START THE SERVER
