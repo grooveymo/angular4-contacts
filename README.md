@@ -49,9 +49,9 @@ Note
 
 To help generate test data, fire up postman and create requests like the following
 
-http://localhost:9090/api/contacts/generate/<id>
+http://localhost:9090/api/contacts/generate/< id >
 
-where <id> is some random number
+where < id > is some random number
 
 
 Things to do
