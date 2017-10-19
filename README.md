@@ -8,19 +8,23 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Instructions
 -------------
-0.) Install mongodb (https://www.mongodb.com/download-center#community)
+0a.) Install mongodb (https://www.mongodb.com/download-center#community). 
 
+0b.) open up terminal and start mongo
 
 1.) run npm install
 
+2.) open a terminal and deploy the REST api
 
-2.) enter the following command to serve the pages
+  $ npm run start_server
+
+3.) enter the following command to serve the pages
 
   $ ng serve
   
   Fire up the browser and navigate to http://localhost:4200
 
-3.) Stop the application (CTRL-C). Run the lint command
+4.) Stop the application (CTRL-C). Run the lint command
 
   $ ng lint
 
