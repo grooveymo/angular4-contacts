@@ -8,9 +8,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Instructions
 -------------
-0a.) Install mongodb (https://www.mongodb.com/download-center#community). 
+0a.) Install Angular CLI
 
-0b.) open up terminal and start mongo
+    $ npm install -g @angular/cli
+
+0b.) git clone this project
+
+0c.) Install mongodb (https://www.mongodb.com/download-center#community). 
+
+0d) open up terminal and start mongo
+
 
 1.) run npm install
 
